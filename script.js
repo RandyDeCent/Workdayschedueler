@@ -68,5 +68,12 @@ $('.saveBtn').on('click', function () {
   
     // Save to localStorage.
     localStorage.setItem(time, value);
-  
+    
+  document.querySelectorAll(".saveBtn").forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    let textArea = btn.previousElementSibling;
+    let hour = textArea.parentElement.id.split("-")[1];
+    localStorage.setItem(hour, textArea.value);
+  });
+});
 });
